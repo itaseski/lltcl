@@ -1,146 +1,264 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en" data-theme="light" >
+<html lang="en" data-theme="light">
 
-    <head>
+<head>
 
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta content="Link Logistik N&N Documentation, Scania Multi, SDP3, XCOM" name="author" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="Link Logistik N&N Documentation, Scania Multi, SDP3, XCOM" name="author" />
 
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap">
-        <link rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap">
+    <link rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');"
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap">
 
-        <!-- no-JS fallback -->
-        <noscript>
-            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap">
-        </noscript>
+    <!-- no-JS fallback -->
+    <noscript>
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap">
+    </noscript>
 
-        <!-- Theme CSS -->
-        <link rel="stylesheet" href="{% static 'css/maint.css' %}" />
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="{% static 'css/maint.css' %}" />
 
-        <script src="{% static 'js/switcher.js' %}"></script>
+    <script src="{% static 'js/switcher.js' %}"></script>
 
-        <!-- Page specific css -->
-        {% block css %}
-        {% endblock %}
+    <!-- Page specific css -->
+    {% block css %}
+    {% endblock %}
 
-        <!-- Favicon -->
-        <link rel="icon" href="{% static 'images/icons/favicon.ico' %}" sizes="any" />
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'images/icons/favicon.ico' %}" sizes="any" />
 
-        <!-- Page Title -->
-        <title>umalume</title>
+    <!-- Page Title -->
+    <title>umalume</title>
 
-    </head>
-    
-    <body>
+</head>
 
-        <!-- NAVIGATION -->
-        <nav id="mainNavbar" class="navbar navbar-vertical navbar-expand-lg scrollbar bg-white navbar-light">
-            <div class="container-fluid">
-                
-                <div class="d-flex align-items-center mb-lg-7">
+<body>
 
-                    <!-- Brand -->
-                    <a class="navbar-brand mb-0" href="/">
-                        <img src="https://d33wubrfki0l68.cloudfront.net/ba6b91b7d508187d153e48318c22d0773a9cedfc/36afa/assets/images/logo.svg" class="navbar-brand-img logo-light logo-large" alt="..." width="125" height="25">
-                        <img src="https://d33wubrfki0l68.cloudfront.net/55307694d1a6b107d2d87c838a1aaede85cd3d84/66f18/assets/images/logo-dark.svg" class="navbar-brand-img logo-dark logo-large" alt="..." width="125" height="25">
-                    </a>
+    <!-- NAVIGATION -->
+    <nav id="mainNavbar" class="navbar navbar-vertical navbar-expand-lg scrollbar bg-white navbar-light">
+        <div class="container-fluid">
 
-                    <a href="../docs/changelog.html">
-                        <span class="badge text-bg-primary-soft ms-2">v1.0.1</span>
-                    </a>
-                </div>
-        
-                <!-- Navbar toggler -->
+            <div class="d-flex align-items-center mb-lg-7">
 
-                <a href="javascript: void(0);" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#sidenavCollapse" aria-controls="sidenavCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                <!-- Brand -->
+                <a class="navbar-brand mb-0" href="/">
+                    <img src="https://d33wubrfki0l68.cloudfront.net/ba6b91b7d508187d153e48318c22d0773a9cedfc/36afa/assets/images/logo.svg"
+                        class="navbar-brand-img logo-light logo-large" alt="..." width="125" height="25">
+                    <img src="https://d33wubrfki0l68.cloudfront.net/55307694d1a6b107d2d87c838a1aaede85cd3d84/66f18/assets/images/logo-dark.svg"
+                        class="navbar-brand-img logo-dark logo-large" alt="..." width="125" height="25">
                 </a>
-        
-                <!-- Collapse -->
-                <div class="collapse navbar-collapse" id="sidenavCollapse">
 
-                    {% block navigation %}
-                    {% endblock %}         
-                                        
-                </div>
-                <!-- End of Collapse -->
+                <a href="../docs/changelog.html">
+                    <span class="badge text-bg-primary-soft ms-2">v1.0.1</span>
+                </a>
             </div>
-        </nav>
 
-        <!-- MAIN CONTENT -->
-        <main>
+            <!-- Navbar toggler -->
 
-            <!-- HEADER -->
-            <header class="container-fluid d-flex py-6 mb-4">
-                <!-- Top buttons -->
-                <div class="d-flex align-items-center ms-auto me-n1 me-lg-n2">
-                    <div class="dropdown" id="themeSwitcher">
-                        <a href="javascript: void(0);" class="dropdown-toggle no-arrow d-flex align-items-center justify-content-center bg-white rounded-circle shadow-sm mx-1 mx-lg-2 w-40px h-40px link-secondary" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-bs-offset="0,10">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="18" width="18"><g><path d="M12,4.64A7.36,7.36,0,1,0,19.36,12,7.37,7.37,0,0,0,12,4.64Zm0,12.72A5.36,5.36,0,1,1,17.36,12,5.37,5.37,0,0,1,12,17.36Z" style="fill: currentColor"/><path d="M12,3.47a1,1,0,0,0,1-1V1a1,1,0,0,0-2,0V2.47A1,1,0,0,0,12,3.47Z" style="fill: currentColor"/><path d="M4.55,6a1,1,0,0,0,.71.29A1,1,0,0,0,6,6,1,1,0,0,0,6,4.55l-1-1A1,1,0,0,0,3.51,4.93Z" style="fill: currentColor"/><path d="M2.47,11H1a1,1,0,0,0,0,2H2.47a1,1,0,1,0,0-2Z" style="fill: currentColor"/><path d="M4.55,18l-1,1a1,1,0,0,0,0,1.42,1,1,0,0,0,.71.29,1,1,0,0,0,.71-.29l1-1A1,1,0,0,0,4.55,18Z" style="fill: currentColor"/><path d="M12,20.53a1,1,0,0,0-1,1V23a1,1,0,0,0,2,0V21.53A1,1,0,0,0,12,20.53Z" style="fill: currentColor"/><path d="M19.45,18A1,1,0,0,0,18,19.45l1,1a1,1,0,0,0,.71.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.42Z" style="fill: currentColor"/><path d="M23,11H21.53a1,1,0,0,0,0,2H23a1,1,0,0,0,0-2Z" style="fill: currentColor"/><path d="M18.74,6.26A1,1,0,0,0,19.45,6l1-1a1,1,0,1,0-1.42-1.42l-1,1A1,1,0,0,0,18,6,1,1,0,0,0,18.74,6.26Z" style="fill: currentColor"/></g></svg>
+            <a href="javascript: void(0);" class="navbar-toggler" data-bs-toggle="collapse"
+                data-bs-target="#sidenavCollapse" aria-controls="sidenavCollapse" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </a>
+
+            <!-- Collapse -->
+            <div class="collapse navbar-collapse" id="sidenavCollapse">
+
+                
+                <!-- Navigation -->
+                <ul class="navbar-nav mb-lg-7">
+
+                    <li class="nav-item">
+                        <span class="h6 text-secondary ps-4 ps-lg-6 mb-3 d-block text-uppercase">Getting started</span>
+                    </li>
+
+                    <!--Maintenance-->
+                    <li class="nav-item dropdown">
+
+                        <a class="nav-link {% block menu_maintenance %} {% endblock %}" href="#maintenance" data-bs-toggle="collapse" role="button"
+                            aria-expanded="false" aria-controls="customization">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
+                                class="bi bi-tools nav-link-icon" viewBox="0 0 16 16">
+                                <path
+                                    d="M1 0 0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.27 3.27a.997.997 0 0 0 1.414 0l1.586-1.586a.997.997 0 0 0 0-1.414l-3.27-3.27a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0Zm9.646 10.646a.5.5 0 0 1 .708 0l2.914 2.915a.5.5 0 0 1-.707.707l-2.915-2.914a.5.5 0 0 1 0-.708ZM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11Z" />
+                            </svg>
+                            <span>Maintenance</span>
                         </a>
-            
-                        <ul class="dropdown-menu dropdown-menu-end">
-                            <li>
-                                <button type="button" class="dropdown-item active" data-theme-value="light">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="me-2" height="18" width="18"><g><path d="M12,4.64A7.36,7.36,0,1,0,19.36,12,7.37,7.37,0,0,0,12,4.64Zm0,12.72A5.36,5.36,0,1,1,17.36,12,5.37,5.37,0,0,1,12,17.36Z" style="fill: currentColor"/><path d="M12,3.47a1,1,0,0,0,1-1V1a1,1,0,0,0-2,0V2.47A1,1,0,0,0,12,3.47Z" style="fill: currentColor"/><path d="M4.55,6a1,1,0,0,0,.71.29A1,1,0,0,0,6,6,1,1,0,0,0,6,4.55l-1-1A1,1,0,0,0,3.51,4.93Z" style="fill: currentColor"/><path d="M2.47,11H1a1,1,0,0,0,0,2H2.47a1,1,0,1,0,0-2Z" style="fill: currentColor"/><path d="M4.55,18l-1,1a1,1,0,0,0,0,1.42,1,1,0,0,0,.71.29,1,1,0,0,0,.71-.29l1-1A1,1,0,0,0,4.55,18Z" style="fill: currentColor"/><path d="M12,20.53a1,1,0,0,0-1,1V23a1,1,0,0,0,2,0V21.53A1,1,0,0,0,12,20.53Z" style="fill: currentColor"/><path d="M19.45,18A1,1,0,0,0,18,19.45l1,1a1,1,0,0,0,.71.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.42Z" style="fill: currentColor"/><path d="M23,11H21.53a1,1,0,0,0,0,2H23a1,1,0,0,0,0-2Z" style="fill: currentColor"/><path d="M18.74,6.26A1,1,0,0,0,19.45,6l1-1a1,1,0,1,0-1.42-1.42l-1,1A1,1,0,0,0,18,6,1,1,0,0,0,18.74,6.26Z" style="fill: currentColor"/></g></svg>
-                                    Light mode
-                                </button>
-                            </li>
-                            <li>
-                                <button type="button" class="dropdown-item" data-theme-value="dark">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="me-2" height="18" width="18"><path d="M19.57,23.34a1,1,0,0,0,0-1.9,9.94,9.94,0,0,1,0-18.88,1,1,0,0,0,.68-.94,1,1,0,0,0-.68-.95A11.58,11.58,0,0,0,8.88,2.18,12.33,12.33,0,0,0,3.75,12a12.31,12.31,0,0,0,5.11,9.79A11.49,11.49,0,0,0,15.61,24,12.55,12.55,0,0,0,19.57,23.34ZM10,20.17A10.29,10.29,0,0,1,5.75,12a10.32,10.32,0,0,1,4.3-8.19A9.34,9.34,0,0,1,15.59,2a.17.17,0,0,1,.17.13.18.18,0,0,1-.07.2,11.94,11.94,0,0,0-.18,19.21.25.25,0,0,1-.16.45A9.5,9.5,0,0,1,10,20.17Z" style="fill: currentColor"/></svg>
-                                    Dark mode
-                                </button>
-                            </li>
-                            <li>
-                                <button type="button" class="dropdown-item" data-theme-value="auto">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="me-2" height="18" width="18"><path d="M24,12a1,1,0,0,0-1-1H19.09a.51.51,0,0,1-.49-.4,6.83,6.83,0,0,0-.94-2.28.5.5,0,0,1,.06-.63l2.77-2.76a1,1,0,1,0-1.42-1.42L16.31,6.28a.5.5,0,0,1-.63.06A6.83,6.83,0,0,0,13.4,5.4a.5.5,0,0,1-.4-.49V1a1,1,0,0,0-2,0V4.91a.51.51,0,0,1-.4.49,6.83,6.83,0,0,0-2.28.94.5.5,0,0,1-.63-.06L4.93,3.51A1,1,0,0,0,3.51,4.93L6.28,7.69a.5.5,0,0,1,.06.63A6.83,6.83,0,0,0,5.4,10.6a.5.5,0,0,1-.49.4H1a1,1,0,0,0,0,2H4.91a.51.51,0,0,1,.49.4,6.83,6.83,0,0,0,.94,2.28.5.5,0,0,1-.06.63L3.51,19.07a1,1,0,1,0,1.42,1.42l2.76-2.77a.5.5,0,0,1,.63-.06,6.83,6.83,0,0,0,2.28.94.5.5,0,0,1,.4.49V23a1,1,0,0,0,2,0V19.09a.51.51,0,0,1,.4-.49,6.83,6.83,0,0,0,2.28-.94.5.5,0,0,1,.63.06l2.76,2.77a1,1,0,1,0,1.42-1.42l-2.77-2.76a.5.5,0,0,1-.06-.63,6.83,6.83,0,0,0,.94-2.28.5.5,0,0,1,.49-.4H23A1,1,0,0,0,24,12Zm-8.74,2.5A5.76,5.76,0,0,1,9.5,8.74a5.66,5.66,0,0,1,.16-1.31A.49.49,0,0,1,10,7.07a5.36,5.36,0,0,1,1.8-.31,5.47,5.47,0,0,1,5.46,5.46,5.36,5.36,0,0,1-.31,1.8.49.49,0,0,1-.35.32A5.53,5.53,0,0,1,15.26,14.5Z" style="fill: currentColor"/></svg>
-                                    Auto
-                                </button>
-                            </li>
-                        </ul>
+
+                        <div class="collapse {% block menu_collapse %} {% endblock %}" id="maintenance">
+                            <ul class="nav flex-column">
+
+                                <li class="nav-item">
+                                    <a href="/" class="nav-link">Work orders</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="{{ url }}" class="nav-link">Scheduled Maintenance</a>
+                                </li>
+
+                                
+                                <li class="nav-item">
+                                    <a href="{% url 'maint:work-list' %}"
+                                        class="nav-link  {% block menu_item_task_group %} {% endblock %}">Task Groups</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../docs/handlebars.html" class="nav-link">Projects</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <!--/Maintenance-->
+
+                </ul>
+                <!-- End of Navigation -->
+               
+
+            </div>
+            <!-- End of Collapse -->
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main>
+
+        <!-- HEADER -->
+        <header class="container-fluid d-flex py-6 mb-4">
+            <!-- Top buttons -->
+            <div class="d-flex align-items-center ms-auto me-n1 me-lg-n2">
+                <div class="dropdown" id="themeSwitcher">
+                    <a href="javascript: void(0);"
+                        class="dropdown-toggle no-arrow d-flex align-items-center justify-content-center bg-white rounded-circle shadow-sm mx-1 mx-lg-2 w-40px h-40px link-secondary"
+                        role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                        data-bs-offset="0,10">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="18" width="18">
+                            <g>
+                                <path
+                                    d="M12,4.64A7.36,7.36,0,1,0,19.36,12,7.37,7.37,0,0,0,12,4.64Zm0,12.72A5.36,5.36,0,1,1,17.36,12,5.37,5.37,0,0,1,12,17.36Z"
+                                    style="fill: currentColor" />
+                                <path d="M12,3.47a1,1,0,0,0,1-1V1a1,1,0,0,0-2,0V2.47A1,1,0,0,0,12,3.47Z"
+                                    style="fill: currentColor" />
+                                <path
+                                    d="M4.55,6a1,1,0,0,0,.71.29A1,1,0,0,0,6,6,1,1,0,0,0,6,4.55l-1-1A1,1,0,0,0,3.51,4.93Z"
+                                    style="fill: currentColor" />
+                                <path d="M2.47,11H1a1,1,0,0,0,0,2H2.47a1,1,0,1,0,0-2Z" style="fill: currentColor" />
+                                <path
+                                    d="M4.55,18l-1,1a1,1,0,0,0,0,1.42,1,1,0,0,0,.71.29,1,1,0,0,0,.71-.29l1-1A1,1,0,0,0,4.55,18Z"
+                                    style="fill: currentColor" />
+                                <path d="M12,20.53a1,1,0,0,0-1,1V23a1,1,0,0,0,2,0V21.53A1,1,0,0,0,12,20.53Z"
+                                    style="fill: currentColor" />
+                                <path
+                                    d="M19.45,18A1,1,0,0,0,18,19.45l1,1a1,1,0,0,0,.71.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.42Z"
+                                    style="fill: currentColor" />
+                                <path d="M23,11H21.53a1,1,0,0,0,0,2H23a1,1,0,0,0,0-2Z" style="fill: currentColor" />
+                                <path
+                                    d="M18.74,6.26A1,1,0,0,0,19.45,6l1-1a1,1,0,1,0-1.42-1.42l-1,1A1,1,0,0,0,18,6,1,1,0,0,0,18.74,6.26Z"
+                                    style="fill: currentColor" />
+                            </g>
+                        </svg>
+                    </a>
+
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li>
+                            <button type="button" class="dropdown-item active" data-theme-value="light">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="me-2" height="18"
+                                    width="18">
+                                    <g>
+                                        <path
+                                            d="M12,4.64A7.36,7.36,0,1,0,19.36,12,7.37,7.37,0,0,0,12,4.64Zm0,12.72A5.36,5.36,0,1,1,17.36,12,5.37,5.37,0,0,1,12,17.36Z"
+                                            style="fill: currentColor" />
+                                        <path d="M12,3.47a1,1,0,0,0,1-1V1a1,1,0,0,0-2,0V2.47A1,1,0,0,0,12,3.47Z"
+                                            style="fill: currentColor" />
+                                        <path
+                                            d="M4.55,6a1,1,0,0,0,.71.29A1,1,0,0,0,6,6,1,1,0,0,0,6,4.55l-1-1A1,1,0,0,0,3.51,4.93Z"
+                                            style="fill: currentColor" />
+                                        <path d="M2.47,11H1a1,1,0,0,0,0,2H2.47a1,1,0,1,0,0-2Z"
+                                            style="fill: currentColor" />
+                                        <path
+                                            d="M4.55,18l-1,1a1,1,0,0,0,0,1.42,1,1,0,0,0,.71.29,1,1,0,0,0,.71-.29l1-1A1,1,0,0,0,4.55,18Z"
+                                            style="fill: currentColor" />
+                                        <path d="M12,20.53a1,1,0,0,0-1,1V23a1,1,0,0,0,2,0V21.53A1,1,0,0,0,12,20.53Z"
+                                            style="fill: currentColor" />
+                                        <path
+                                            d="M19.45,18A1,1,0,0,0,18,19.45l1,1a1,1,0,0,0,.71.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.42Z"
+                                            style="fill: currentColor" />
+                                        <path d="M23,11H21.53a1,1,0,0,0,0,2H23a1,1,0,0,0,0-2Z"
+                                            style="fill: currentColor" />
+                                        <path
+                                            d="M18.74,6.26A1,1,0,0,0,19.45,6l1-1a1,1,0,1,0-1.42-1.42l-1,1A1,1,0,0,0,18,6,1,1,0,0,0,18.74,6.26Z"
+                                            style="fill: currentColor" />
+                                    </g>
+                                </svg>
+                                Light mode
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" class="dropdown-item" data-theme-value="dark">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="me-2" height="18"
+                                    width="18">
+                                    <path
+                                        d="M19.57,23.34a1,1,0,0,0,0-1.9,9.94,9.94,0,0,1,0-18.88,1,1,0,0,0,.68-.94,1,1,0,0,0-.68-.95A11.58,11.58,0,0,0,8.88,2.18,12.33,12.33,0,0,0,3.75,12a12.31,12.31,0,0,0,5.11,9.79A11.49,11.49,0,0,0,15.61,24,12.55,12.55,0,0,0,19.57,23.34ZM10,20.17A10.29,10.29,0,0,1,5.75,12a10.32,10.32,0,0,1,4.3-8.19A9.34,9.34,0,0,1,15.59,2a.17.17,0,0,1,.17.13.18.18,0,0,1-.07.2,11.94,11.94,0,0,0-.18,19.21.25.25,0,0,1-.16.45A9.5,9.5,0,0,1,10,20.17Z"
+                                        style="fill: currentColor" />
+                                </svg>
+                                Dark mode
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" class="dropdown-item" data-theme-value="auto">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="me-2" height="18"
+                                    width="18">
+                                    <path
+                                        d="M24,12a1,1,0,0,0-1-1H19.09a.51.51,0,0,1-.49-.4,6.83,6.83,0,0,0-.94-2.28.5.5,0,0,1,.06-.63l2.77-2.76a1,1,0,1,0-1.42-1.42L16.31,6.28a.5.5,0,0,1-.63.06A6.83,6.83,0,0,0,13.4,5.4a.5.5,0,0,1-.4-.49V1a1,1,0,0,0-2,0V4.91a.51.51,0,0,1-.4.49,6.83,6.83,0,0,0-2.28.94.5.5,0,0,1-.63-.06L4.93,3.51A1,1,0,0,0,3.51,4.93L6.28,7.69a.5.5,0,0,1,.06.63A6.83,6.83,0,0,0,5.4,10.6a.5.5,0,0,1-.49.4H1a1,1,0,0,0,0,2H4.91a.51.51,0,0,1,.49.4,6.83,6.83,0,0,0,.94,2.28.5.5,0,0,1-.06.63L3.51,19.07a1,1,0,1,0,1.42,1.42l2.76-2.77a.5.5,0,0,1,.63-.06,6.83,6.83,0,0,0,2.28.94.5.5,0,0,1,.4.49V23a1,1,0,0,0,2,0V19.09a.51.51,0,0,1,.4-.49,6.83,6.83,0,0,0,2.28-.94.5.5,0,0,1,.63.06l2.76,2.77a1,1,0,1,0,1.42-1.42l-2.77-2.76a.5.5,0,0,1-.06-.63,6.83,6.83,0,0,0,.94-2.28.5.5,0,0,1,.49-.4H23A1,1,0,0,0,24,12Zm-8.74,2.5A5.76,5.76,0,0,1,9.5,8.74a5.66,5.66,0,0,1,.16-1.31A.49.49,0,0,1,10,7.07a5.36,5.36,0,0,1,1.8-.31,5.47,5.47,0,0,1,5.46,5.46,5.36,5.36,0,0,1-.31,1.8.49.49,0,0,1-.35.32A5.53,5.53,0,0,1,15.26,14.5Z"
+                                        style="fill: currentColor" />
+                                </svg>
+                                Auto
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+
+                {% block header %}
+                {% endblock %}
+
+            </div>
+        </header>
+
+        <div class="container-fluid">
+            {% block body %}
+            {% endblock %}
+        </div> <!-- / .container-fluid -->
+
+        <!-- Footer -->
+        <footer class="mt-auto">
+            <div class="container-fluid mt-4 mb-6 text-muted">
+                <div class="row justify-content-between">
+                    <div class="col">
+                        © umalume. 2022 oom.
                     </div>
 
-                    {% block header %}
-                    {% endblock %}             
-                    
-                </div>
-            </header>
+                    <div class="col-auto">
+                        v1.0.1
+                    </div>
+                </div> <!-- / .row -->
+            </div>
+        </footer>
 
-            <div class="container-fluid">
-                {% block body %}
-                {% endblock %} 
-            </div> <!-- / .container-fluid -->
+    </main> <!-- / main -->
 
-            <!-- Footer -->
-            <footer class="mt-auto">
-                <div class="container-fluid mt-4 mb-6 text-muted">
-                    <div class="row justify-content-between">
-                        <div class="col">
-                            © umalume. 2022 oom.
-                        </div>
+    <!-- JAVASCRIPT-->
+    <!-- Vendor JS -->
+    <!-- <script src="../assets/js/vendors.bundle.js"></script> -->
 
-                        <div class="col-auto">
-                            v1.0.1
-                        </div>
-                    </div> <!-- / .row -->
-                </div>
-            </footer>
-            
-        </main> <!-- / main -->
+    <!-- Theme JS -->
+    <script src="{% static 'js/maint.js' %}"></script>
 
-        <!-- JAVASCRIPT-->
-        <!-- Vendor JS -->
-        <!-- <script src="../assets/js/vendors.bundle.js"></script> -->
-        
-        <!-- Theme JS -->
-        <script src="{% static 'js/maint.js' %}"></script>
+    <!-- Page specific js -->
+    {% block js %}
+    {% endblock %}
+</body>
 
-        <!-- Page specific js -->
-        {% block js %}
-        {% endblock %}
-    </body>
 </html>

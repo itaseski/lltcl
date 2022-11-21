@@ -5,53 +5,15 @@
 {% block css %}
 {% endblock %}
 
-{% block navigation %}
-<!-- Navigation -->
-<ul class="navbar-nav mb-lg-7">
+<!-- Page navigation -->
 
-    <li class="nav-item">
-        <span class="h6 text-secondary ps-4 ps-lg-6 mb-3 d-block text-uppercase">Getting started</span>
-    </li>
 
-    <!--Maintenance-->
-    <li class="nav-item dropdown">
+{% block menu_maintenance %} active {% endblock %}
+{% block menu_collapse %} show {% endblock %}
+{% block menu_item_task_group %} active {% endblock %}
 
-        <a class="nav-link" href="#maintenance" data-bs-toggle="collapse" role="button" aria-expanded="false"
-            aria-controls="customization">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
-                class="bi bi-tools nav-link-icon" viewBox="0 0 16 16">
-                <path
-                    d="M1 0 0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.27 3.27a.997.997 0 0 0 1.414 0l1.586-1.586a.997.997 0 0 0 0-1.414l-3.27-3.27a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0Zm9.646 10.646a.5.5 0 0 1 .708 0l2.914 2.915a.5.5 0 0 1-.707.707l-2.915-2.914a.5.5 0 0 1 0-.708ZM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11Z" />
-            </svg>
-            <span>Maintenance</span>
-        </a>
 
-        <div class="collapse show" id="maintenance">
-            <ul class="nav flex-column">
-
-                <li class="nav-item">
-                    <a href="/" class="nav-link">Work orders</a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="{{ url }}" class="nav-link">Scheduled Maintenance</a>
-                </li>
-
-                {% url 'maint:work-list' as url %}
-                <li class="nav-item">
-                    <a href="{{ url }}" class="nav-link  {% if request.path == url %}active{% endif %}">Task Groups</a>
-                </li>
-                <li class="nav-item">
-                    <a href="../docs/handlebars.html" class="nav-link">Projects</a>
-                </li>
-            </ul>
-        </div>
-    </li>
-
-</ul>
-<!-- End of Navigation -->
-{% endblock %}
-
+<!-- Page header -->
 {% block header %}
 
 <!-- Divider -->
@@ -90,6 +52,310 @@
             <li class="breadcrumb-item active" aria-current="page">Work descriptionn list</li>
         </ol>
     </nav>
+</div>
+
+<div class="row">
+
+    <div class="col-md-4 col-xxl-3">
+        <!-- Card -->
+        <div class="card border-0 sticky-md-top top-10px">
+            <div class="card-body">
+                <div class="text-center mb-5">
+                    <div class="avatar avatar-xxl avatar-circle mb-5">
+                        <label class="d-block cursor-pointer">
+                            <span
+                                class="position-absolute bottom-0 end-0 m-0 bg-primary text-white w-30px h-30px rounded-circle d-flex align-items-center justify-content-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="14" width="14">
+                                    <g>
+                                        <path
+                                            d="M2.65,16.4a.5.5,0,0,0-.49-.13.52.52,0,0,0-.35.38L.39,23a.51.51,0,0,0,.6.6l6.36-1.42a.52.52,0,0,0,.38-.35.5.5,0,0,0-.13-.49Z"
+                                            style="fill: currentColor" />
+                                        <path
+                                            d="M17.85,7.21l-11,11a.24.24,0,0,0,0,.35l1.77,1.77a.5.5,0,0,0,.71,0L20,9.68A.48.48,0,0,0,20,9L18.21,7.21A.25.25,0,0,0,17.85,7.21Z"
+                                            style="fill: currentColor" />
+                                        <path
+                                            d="M16.79,5.79,15,4a.48.48,0,0,0-.7,0L3.71,14.63a.51.51,0,0,0,0,.71l1.77,1.77a.24.24,0,0,0,.35,0l11-11A.25.25,0,0,0,16.79,5.79Z"
+                                            style="fill: currentColor" />
+                                        <path
+                                            d="M22.45,1.55a4,4,0,0,0-5.66,0l-.71.71a.51.51,0,0,0,0,.71l5,4.95a.52.52,0,0,0,.71,0l.71-.71A4,4,0,0,0,22.45,1.55Z"
+                                            style="fill: currentColor" />
+                                    </g>
+                                </svg>
+                            </span>
+                            <input type="file" name="avatar" class="d-none">
+                        </label>
+                        <img src="{% static 'images/SK9658BB.png' %}" alt="Scania R 450 SK9658BB" class="avatar-img"
+                            width="112" height="112">
+                    </div>
+
+                    <h3 class="mb-0">Scania R XPI</h3>
+                    <span class="small text-secondary fw-semibold">410, 450</span>
+                </div>
+
+                <!-- Divider -->
+                <hr class="mb-0">
+            </div>
+
+            <ul class="scrollspy mb-5" id="account" data-scrollspy='{"offset": "30"}'>
+                <li class="active">
+                    <a href="#general" class="d-flex align-items-center py-3">
+                        <svg viewBox="0 0 24 24" height="14" width="14" class="me-3" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6.750 6.000 A5.250 5.250 0 1 0 17.250 6.000 A5.250 5.250 0 1 0 6.750 6.000 Z"
+                                fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="1.5" />
+                            <path d="M2.25,23.25a9.75,9.75,0,0,1,19.5,0" fill="none" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" />
+                        </svg>
+                        General
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#usernameSection" class="d-flex align-items-center py-3">
+                        <svg viewBox="0 0 24 24" height="14" width="14" class="me-3" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.25,12A5.25,5.25,0,1,1,12,6.75,5.25,5.25,0,0,1,17.25,12Z" fill="none"
+                                stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="1.5" />
+                            <path d="M17.25,12v2.25a3,3,0,0,0,6,0V12a11.249,11.249,0,1,0-4.5,9" fill="none"
+                                stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="1.5" />
+                        </svg>
+                        Engine
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#passwordSection" class="d-flex align-items-center py-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" height="14" width="14"
+                            class="me-3">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="1.5"
+                                d="M18.75 9.75H5.25C4.42157 9.75 3.75 10.4216 3.75 11.25V21.75C3.75 22.5784 4.42157 23.25 5.25 23.25H18.75C19.5784 23.25 20.25 22.5784 20.25 21.75V11.25C20.25 10.4216 19.5784 9.75 18.75 9.75Z" />
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="1.5"
+                                d="M6.75 9.75V6C6.75 4.60761 7.30312 3.27226 8.28769 2.28769C9.27226 1.30312 10.6076 0.75 12 0.75C13.3924 0.75 14.7277 1.30312 15.7123 2.28769C16.6969 3.27226 17.25 4.60761 17.25 6V9.75" />
+                            <path stroke="currentColor" stroke-width="1.5"
+                                d="M8.625 15C8.41789 15 8.25 14.8321 8.25 14.625C8.25 14.4179 8.41789 14.25 8.625 14.25" />
+                            <path stroke="currentColor" stroke-width="1.5"
+                                d="M8.625 15C8.83211 15 9 14.8321 9 14.625C9 14.4179 8.83211 14.25 8.625 14.25" />
+                            <path stroke="currentColor" stroke-width="1.5"
+                                d="M8.625 18.75C8.41789 18.75 8.25 18.5821 8.25 18.375C8.25 18.1679 8.41789 18 8.625 18" />
+                            <path stroke="currentColor" stroke-width="1.5"
+                                d="M8.625 18.75C8.83211 18.75 9 18.5821 9 18.375C9 18.1679 8.83211 18 8.625 18" />
+                            <path stroke="currentColor" stroke-width="1.5"
+                                d="M12 15C11.7929 15 11.625 14.8321 11.625 14.625C11.625 14.4179 11.7929 14.25 12 14.25" />
+                            <path stroke="currentColor" stroke-width="1.5"
+                                d="M12 15C12.2071 15 12.375 14.8321 12.375 14.625C12.375 14.4179 12.2071 14.25 12 14.25" />
+                            <g>
+                                <path stroke="currentColor" stroke-width="1.5"
+                                    d="M12 18.75C11.7929 18.75 11.625 18.5821 11.625 18.375C11.625 18.1679 11.7929 18 12 18" />
+                                <path stroke="currentColor" stroke-width="1.5"
+                                    d="M12 18.75C12.2071 18.75 12.375 18.5821 12.375 18.375C12.375 18.1679 12.2071 18 12 18" />
+                            </g>
+                            <g>
+                                <path stroke="currentColor" stroke-width="1.5"
+                                    d="M15.375 15C15.1679 15 15 14.8321 15 14.625C15 14.4179 15.1679 14.25 15.375 14.25" />
+                                <path stroke="currentColor" stroke-width="1.5"
+                                    d="M15.375 15C15.5821 15 15.75 14.8321 15.75 14.625C15.75 14.4179 15.5821 14.25 15.375 14.25" />
+                            </g>
+                            <g>
+                                <path stroke="currentColor" stroke-width="1.5"
+                                    d="M15.375 18.75C15.1679 18.75 15 18.5821 15 18.375C15 18.1679 15.1679 18 15.375 18" />
+                                <path stroke="currentColor" stroke-width="1.5"
+                                    d="M15.375 18.75C15.5821 18.75 15.75 18.5821 15.75 18.375C15.75 18.1679 15.5821 18 15.375 18" />
+                            </g>
+                        </svg>
+                        Password
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#privacyAndSafetySection" class="d-flex align-items-center py-3">
+                        <svg viewBox="0 0 24 24" height="14" width="14" class="me-3" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3.749,9a8.25,8.25,0,0,1,13.5-6.364" fill="none" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" />
+                            <path
+                                d="M19.687,6a8.23,8.23,0,0,1,.562,3v6A8.25,8.25,0,0,1,12,23.25a8.336,8.336,0,0,1-1.5-.136"
+                                fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="1.5" />
+                            <path d="M6.751,21.365a8.234,8.234,0,0,1-3-6.365V12.75" fill="none" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" />
+                            <path d="M15.749,15V9a3.75,3.75,0,0,0-6-3" fill="none" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" />
+                            <path d="M8.249,9v6A3.753,3.753,0,0,0,13.5,18.438" fill="none" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" />
+                            <path d="M11.999 9.75L11.999 14.25" fill="none" stroke="currentColor" stroke-linecap="round"
+                                stroke-linejoin="round" stroke-width="1.5" />
+                        </svg>
+                        Privacy and Safety
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#paymentMethodsSection" class="d-flex align-items-center py-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="14" width="14" class="me-3">
+                            <defs>
+                                <style>
+                                    .a {
+                                        fill: none;
+                                        stroke: currentColor;
+                                        stroke-linecap: round;
+                                        stroke-linejoin: round;
+                                        stroke-width: 1.5px;
+                                    }
+                                </style>
+                            </defs>
+                            <title>credit-card-1</title>
+                            <rect class="a" x="0.75" y="3.75" width="22.5" height="16.5" rx="1.5" ry="1.5" />
+                            <line class="a" x1="0.75" y1="8.25" x2="23.25" y2="8.25" />
+                            <line class="a" x1="5.25" y1="12.75" x2="13.5" y2="12.75" />
+                            <line class="a" x1="5.25" y1="15.75" x2="10.5" y2="15.75" />
+                        </svg>
+                        Payment methods
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#notificationsSection" class="d-flex align-items-center py-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="14" width="14" class="me-3">
+                            <defs>
+                                <style>
+                                    .a {
+                                        fill: none;
+                                        stroke: currentColor;
+                                        stroke-linecap: round;
+                                        stroke-linejoin: round;
+                                        stroke-width: 1.5px;
+                                    }
+                                </style>
+                            </defs>
+                            <title>alert-bell-notification-2</title>
+                            <circle class="a" cx="18.875" cy="5.827" r="3" />
+                            <path class="a" d="M9.125,21.75a2.087,2.087,0,0,0,4.005,0" />
+                            <line class="a" x1="11.125" y1="3" x2="11.125" y2="0.75" />
+                            <path class="a"
+                                d="M18.648,11.961c.189,5.756,1.477,6.789,1.477,6.789h-18s1.5-1.916,1.5-8.25a7.507,7.507,0,0,1,9.724-7.165" />
+                        </svg>
+                        Notifications
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#connectedAccountsSection" class="d-flex align-items-center py-3">
+                        <svg viewBox="0 0 24 24" height="14" width="14" class="me-3" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9.750 10.498 A3.750 3.750 0 1 0 17.250 10.498 A3.750 3.750 0 1 0 9.750 10.498 Z"
+                                fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="1.5" />
+                            <path d="M18.750 2.998 A2.250 2.250 0 1 0 23.250 2.998 A2.250 2.250 0 1 0 18.750 2.998 Z"
+                                fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="1.5" />
+                            <path d="M18.750 15.748 A2.250 2.250 0 1 0 23.250 15.748 A2.250 2.250 0 1 0 18.750 15.748 Z"
+                                fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="1.5" />
+                            <path d="M11.250 20.998 A2.250 2.250 0 1 0 15.750 20.998 A2.250 2.250 0 1 0 11.250 20.998 Z"
+                                fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="1.5" />
+                            <path d="M0.750 20.998 A2.250 2.250 0 1 0 5.250 20.998 A2.250 2.250 0 1 0 0.750 20.998 Z"
+                                fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="1.5" />
+                            <path d="M1.500 5.248 A2.250 2.250 0 1 0 6.000 5.248 A2.250 2.250 0 1 0 1.500 5.248 Z"
+                                fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="1.5" />
+                            <path d="M16.151 7.848L19.411 4.588" fill="none" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" />
+                            <path d="M16.794 12.292L19.079 14.577" fill="none" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" />
+                            <path d="M13.5 14.248L13.5 18.748" fill="none" stroke="currentColor" stroke-linecap="round"
+                                stroke-linejoin="round" stroke-width="1.5" />
+                            <path d="M10.851 13.147L4.59 19.408" fill="none" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" />
+                            <path d="M10.001 9.149L5.61 6.514" fill="none" stroke="currentColor" stroke-linecap="round"
+                                stroke-linejoin="round" stroke-width="1.5" />
+                        </svg>
+                        Connected accounts
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#deleteAccountSection" class="d-flex align-items-center py-3">
+                        <svg viewBox="0 0 24 24" height="14" width="14" class="me-3" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M18.177,23.25H7.677a1.5,1.5,0,0,1-1.5-1.5V8.25h13.5v13.5A1.5,1.5,0,0,1,18.177,23.25Z"
+                                fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="1.5" />
+                            <path d="M10.677 18.75L10.677 12.75" fill="none" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" />
+                            <path d="M15.177 18.75L15.177 12.75" fill="none" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" />
+                            <path d="M2.427 6.212L21.501 2.158" fill="none" stroke="currentColor" stroke-linecap="round"
+                                stroke-linejoin="round" stroke-width="1.5" />
+                            <path
+                                d="M13.541.783l-4.4.935A1.5,1.5,0,0,0,7.984,3.5L8.3,4.965l7.336-1.56L15.32,1.938A1.5,1.5,0,0,0,13.541.783Z"
+                                fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="1.5" />
+                        </svg>
+                        Delete account
+                    </a>
+                </li>
+            </ul>
+
+            
+        </div>
+    </div>
+
+    <div class="col">
+        <form novalidate>
+
+            <!-- Card -->
+            <div class="card border-0 scroll-mt-3" id="general">
+
+
+                <div class="card-header">
+                    <h2 class="h3 mb-0">Општо</h2>
+                </div>
+
+                
+
+                <div class="card-body">
+
+                    
+                    
+                    <ul class="list-group list-group-flush">
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th scope="col">code</th>
+                                    <th scope="col">Title</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for work in works %}
+                                <tr>
+                                    <th scope="row"><a href="{% url 'maint:work-detail' work.id %}">{{ work.code }}</a></th>
+                                    <td>{{ work.title }}</td>
+                                </tr>
+                                {% endfor %}
+
+                            </tbody>
+
+                        </table>
+                        
+                        
+                    </ul>
+                    
+
+                    
+                </div>
+
+                
+
+            </div>
+
+            
+                      
+        </form>
+    </div>
+
 </div>
 
 
