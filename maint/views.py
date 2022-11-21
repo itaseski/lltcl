@@ -12,8 +12,8 @@ def work_list(request):
 
 
 
-def work_detail(request, work_id):
-    work = get_object_or_404(Work, pk=work_id, status=Work.Status.PUBLISHED)
+def work_detail(request, work):
+    work = get_object_or_404(Work, slug=work, status=Work.Status.PUBLISHED)
     contex = {
         'work': work
     }

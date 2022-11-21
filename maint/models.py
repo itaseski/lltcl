@@ -22,7 +22,7 @@ class Work(models.Model):
         PUBLISHED = 'PB', _('Published')
 
     title = models.CharField(max_length=256)
-    slug = models.SlugField(max_length=256)
+    slug = models.SlugField(max_length=256, unique_for_date='publish')
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='maint_work') #  specify the name of the reverse relationship, from User to Work. 
     code = models.CharField(max_length=101, default='XX-XX:XXXX')
     content = models.TextField()
@@ -46,7 +46,7 @@ class Work(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('maint:work-detail', args=[self.id])
+        return reverse('maint:work-detail', args=[self.slug])
     
     # 
     @property
