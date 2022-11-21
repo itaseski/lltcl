@@ -4,7 +4,7 @@ from .models import Work
 
 @admin.register(Work)
 class WorkAdmin(admin.ModelAdmin):
-    list_display = ['code','title', 'content']
+    list_display = ['code','title', 'short_description']
     list_display_links = ['code',]
     list_filter = ['status']
     search_fields = ['title', 'content']

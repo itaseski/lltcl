@@ -4,6 +4,8 @@ from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import User
+from django.urls import reverse
+
 
 
 class PublishedManager(models.Manager):
@@ -12,9 +14,13 @@ class PublishedManager(models.Manager):
 
 
 class Work(models.Model):
+    '''
+    The basics:
+    '''
     class Status(models.TextChoices):
         DRAFT = 'DF', _('Draft')
         PUBLISHED = 'PB', _('Published')
+
     title = models.CharField(max_length=256)
     slug = models.SlugField(max_length=256)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='maint_work') #  specify the name of the reverse relationship, from User to Work. 
@@ -38,3 +44,11 @@ class Work(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('maint:work-detail', args=[self.id])
+    
+    # 
+    @property
+    def short_description(self):
+        return self.content if len(self.content) < 35 else (self.content[:33] + '..')

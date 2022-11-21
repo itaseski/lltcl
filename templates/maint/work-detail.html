@@ -86,8 +86,8 @@
     <!-- Breadcrumb -->
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="javascript: void(0);">Maintenance</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Work descriptionn list</li>
+            <li class="breadcrumb-item"><a href="{% url 'maint:work-list' %}">Work descriptionn list</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ work.title }}</li>
         </ol>
     </nav>
 </div>

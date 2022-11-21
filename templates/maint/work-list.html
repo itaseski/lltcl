@@ -9,7 +9,7 @@
 
 
 {% block menu_maintenance %} active {% endblock %}
-{% block menu_collapse %} show {% endblock %}
+{% block menu_maintenance_collapse %} show {% endblock %}
 {% block menu_item_task_group %} active {% endblock %}
 
 
@@ -331,7 +331,7 @@
                             <tbody>
                                 {% for work in works %}
                                 <tr>
-                                    <th scope="row"><a href="{% url 'maint:work-detail' work.id %}">{{ work.code }}</a></th>
+                                    <th scope="row"><a href="{{ work.get_absolute_url }}">{{ work.code }}</a></th>
                                     <td>{{ work.title }}</td>
                                 </tr>
                                 {% endfor %}
