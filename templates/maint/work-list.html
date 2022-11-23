@@ -27,12 +27,12 @@
 <!-- Link -->
 <a href="https://themes.getbootstrap.com/product/dashly-admin-dashboard-template/" target="_blank"
     class="btn btn-primary mx-1 mx-lg-2 px-4 px-lg-5">
-    Purchase Now
+    SDP3
 </a>
 
 <!-- Link -->
 <a href="../index.html" class="btn btn-dark mx-1 mx-lg-2 px-4 px-lg-5">
-    User Manual
+    XCOM
 </a>
 {% endblock %}
 
@@ -299,61 +299,52 @@
                 </li>
             </ul>
 
-            
+
         </div>
     </div>
 
     <div class="col">
-        <form novalidate>
 
-            <!-- Card -->
-            <div class="card border-0 scroll-mt-3" id="general">
+        <!-- Card -->
+        <div class="card border-0 scroll-mt-3" id="general">
 
 
-                <div class="card-header">
-                    <h2 class="h3 mb-0">Општо</h2>
-                </div>
+            <div class="card-header">
+                <h2 class="h3 mb-0">Општо</h2>
+            </div>
 
-                
+            <div class="card-body">
 
-                <div class="card-body">
+                <ul class="list-group list-group-flush">
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th scope="col">code</th>
+                                <th scope="col">Title</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for work in works %}
+                            <tr>
+                                <th scope="row"><a href="{{ work.get_absolute_url }}">{{ work.code }}</a></th>
+                                <td>{{ work.title }}</td>
+                            </tr>
+                            {% endfor %}
 
-                    
-                    
-                    <ul class="list-group list-group-flush">
-                        <table class="table table-sm">
-                            <thead>
-                                <tr>
-                                    <th scope="col">code</th>
-                                    <th scope="col">Title</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {% for work in works %}
-                                <tr>
-                                    <th scope="row"><a href="{{ work.get_absolute_url }}">{{ work.code }}</a></th>
-                                    <td>{{ work.title }}</td>
-                                </tr>
-                                {% endfor %}
+                        </tbody>
 
-                            </tbody>
+                    </table>
 
-                        </table>
-                        
-                        
-                    </ul>
-                    
 
-                    
-                </div>
+                </ul>
 
-                
+                {% include "pagination.html" with page=works %}
+
 
             </div>
 
-            
-                      
-        </form>
+
+        </div>
     </div>
 
 </div>

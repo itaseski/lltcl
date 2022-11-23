@@ -22,9 +22,9 @@ class Work(models.Model):
         PUBLISHED = 'PB', _('Published')
 
     title = models.CharField(max_length=256)
-    slug = models.SlugField(max_length=256, unique_for_date='publish')
+    slug = models.SlugField(max_length=256, unique=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='maint_work') #  specify the name of the reverse relationship, from User to Work. 
-    code = models.CharField(max_length=101, default='XX-XX:XXXX')
+    code = models.CharField(max_length=101, default='XX-XX:XXXX', unique=True)
     content = models.TextField()
     publish = models.DateTimeField(default=timezone.now) # returns the current datetime in a timezone-aware format
     created = models.DateTimeField(auto_now_add=True) #  the date will be saved automatically when creating an object
@@ -39,7 +39,6 @@ class Work(models.Model):
         indexes = [
             models.Index(fields=['code']), # Creates an index (B-Tree) in the database. This will improve performance for queries filtering or ordering results by this field.
         ]
-
 
 
     def __str__(self):
