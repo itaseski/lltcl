@@ -14,9 +14,7 @@ class PublishedManager(models.Manager):
 
 
 class Work(models.Model):
-    '''
-    The basics:
-    '''
+    
     class Status(models.TextChoices):
         DRAFT = 'DF', _('Draft')
         PUBLISHED = 'PB', _('Published')
