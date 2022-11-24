@@ -5,7 +5,7 @@
         <div class="me-5 text-secondary small">
             Страна: <span class="list-pagination-page-first">{{ page.number }}</span> од <span
                 class="list-pagination-page-last">{{ page.paginator.num_pages }} страни, </span>
-         со вкупно <span class="list-pagination-pages">{{ page.paginator.count }}</span> податоци.
+         со вкупно <span class="list-pagination-pages">{{ page.paginator.count }}</span> описи на работа.
         </div>
 
         <!-- Pagination -->
@@ -21,11 +21,15 @@
                 </li>
                 {% endif %}
 
-                {% for i in Paginator.page_range %}
-                {% if Page.number == i %}
-                <li class="page-item active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+                {% for num_page in page.paginator.page_range %}
+                {% if page.number == num_page %}
+                <li class="page-item active" aria-current="page">
+                    <a class="page-link" href="?page={{ num_page }}">{{ num_page }}</a>
+                </li>
                 {% else %}
-                <li><a href="?page={{ i }}">{{ i }}</a></li>
+                <li class="page-item" aria-current="page">
+                    <a class="page-link" href="?page={{ num_page }}">{{ num_page }}</a>
+                </li>
                 {% endif %}
                 {% endfor %}
 

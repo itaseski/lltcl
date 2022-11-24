@@ -1,13 +1,13 @@
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.http import JsonResponse
+
 from .models import Work
 
 
 def work_list(request):
-    work_list = Work.published.all() # lista na site kompletirani opisi na rabota
-    # Pagination with 7 work description per page
-    # Django uses the Paginator class to split a Queryset object (or other objects with a count() or __len__() method) into Page objects.
-    paginator = Paginator(work_list, per_page = 3) # broj na opisi na rabota po strana
+    work_list = Work.published.all()
+    paginator = Paginator(work_list, per_page = 5)
     page_number = request.GET.get('page', 1)
 
     try:
